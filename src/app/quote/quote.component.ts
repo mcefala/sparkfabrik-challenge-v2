@@ -132,6 +132,10 @@ export class QuoteComponent implements OnInit {
   }
 
   public addNewQuote(value: Quote) {
+	  if (!value.text) {
+      this.setError("Quote text cannot be empty!!");
+      return;
+    }
     if (!value.author) value.author = "anonymous";
     this.sharedServices.addNewQuote(
       value,
