@@ -1,0 +1,17 @@
+<div style="margin-top: 50px;">
+	<div style="max-width: 400px; margin: auto;">
+		<br>
+		<mat-form-field class="full-width">
+			<mat-label>Email</mat-label>
+			<input matInput [(ngModel)]="email" type="text">
+      </mat-form-field>
+			<br>
+			<mat-form-field class="full-width">
+				<mat-label>Password</mat-label>
+				<input  matInput [(ngModel)]="password" type="password">
+      </mat-form-field>
+				<br>
+				<button mat-raised-button type="button" color="primary" (click)="login()"  >Login</button>
+				<button mat-raised-button style="margin-left:5px" color="primary" type="button" (click)="register()" >SignUp</button>
+	</div>
+</div>

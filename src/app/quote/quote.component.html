@@ -1,0 +1,46 @@
+<div class="container">
+	<mat-form-field class="full-width">
+		<mat-label>Your New Quote</mat-label>
+		<textarea matInput [(ngModel)]="quote.text"></textarea>
+	</mat-form-field>
+	<mat-form-field class="full-width">
+		<mat-label>Author</mat-label>
+		<input matInput [(ngModel)]="quote.author" type="text">
+  </mat-form-field>
+		<button class="full-width" mat-raised-button color="primary" (click)="addNewQuote(quote)"> ADD NEW QUOTE</button>
+		<br>
+		<div align=right style="margin-top: 20px;" *ngIf="quotes.length>0">
+			<mat-form-field>
+				<mat-label>Search</mat-label>
+				<input matInput [(ngModel)]="crit" (ngModelChange)="search(crit)">
+      </mat-form-field>
+		</div>
+		<br>
+		<mat-list>
+			<div *ngFor="let item of quotesview">
+				<mat-card style="padding: 0px !important">
+					<mat-toolbar style="width:100%; height:30px !important; margin-top:0px !important ">
+						<span class="spacer"></span>
+						<button mat-icon-button color="primary" (click)="copyToClipboard(item)">
+        <mat-icon>content_copy</mat-icon>
+      </button>
+						<button mat-icon-button color="warn" (click)="delete(item)">
+        <mat-icon>delete</mat-icon>
+      </button>
+					</mat-toolbar>
+					<br>
+					<mat-card-content>
+						<div style="margin:15px">
+							<strong class="margin-left:15px">
+          {{item.data().text}}
+      </strong>
+							<div align="right">
+								<p align="right" style="margin-right:15px"> ({{item.data().author}})</p>
+							</div>
+							<br>
+					</div>
+					</mat-card-content>
+				</mat-card>
+			</div>
+		</mat-list>
+</div>
